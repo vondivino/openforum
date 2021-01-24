@@ -1,3 +1,20 @@
-from django.shortcuts import render
+from django.views.generic import (
+    ListView,
+    DetailView
+)
 
-# Create your views here.
+from forums.models import (
+    Forum,
+    Discussion,
+    Comment
+)
+
+class ForumListView(ListView):
+    model = Forum 
+    template_name = 'forums/home.html'
+    context_object_name = 'forums'
+
+class ForumDetailView(DetailView):
+    model = Forum 
+    template_name = 'forums/detail.html'
+    context_object_name = 'forum'

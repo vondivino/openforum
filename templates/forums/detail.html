@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}{{ forum.title }}{% endblock title %}
+
+{% block content %} 
+    <div class="content">
+        <h1 class="title">{{ forum.name }}</h1>
+        {% for discussion in forum.discussion_set.all %}
+         <div class="card mb-6">
+            <div class="card-content">
+              <p class="title">
+                {{ discussion.title}}
+              </p>
+              <p class="subtitle">
+                by {{ discussion.author }} | 
+                {{ discussion.date }}
+              </p>
+            </div>
+            <footer class="card-footer">
+              <p class="card-footer-item">
+                <span>
+                  View on <a href="">more</a>
+                </span>
+              </p>
+              <p class="card-footer-item">
+                <span>
+                  Share on <a href="#">Facebook</a>
+                </span>
+              </p>
+            </footer>
+          </div>
+        {% endfor %}
+    </div>
+    
+{% endblock content %}
