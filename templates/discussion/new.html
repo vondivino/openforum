@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}New Discussion{% endblock title %}
+
+{% block content %} 
+    <h1 class="title">New Discussion</h1>
+    <div class="columns">
+        <div class="column is-half">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="button is-success">Add</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

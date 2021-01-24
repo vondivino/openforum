@@ -6,32 +6,45 @@
 
 {% block content %} 
     <div class="content">
-        <h1 class="title">{{ forum.name }}</h1>
-        {% for discussion in forum.discussion_set.all %}
-         <div class="card mb-6">
-            <div class="card-content">
-              <p class="title">
-                {{ discussion.title}}
-              </p>
-              <p class="subtitle">
-                by {{ discussion.author }} | 
-                {{ discussion.date }}
-              </p>
+          <div class="section">
+            <div class="columns">
+              <div class="column">
+                <h1 class="title">{{ forum.name }}</h1>
+              </div>
+              <div class="column">
+                <a class="button is-success is-light" 
+                href="{% url 'discussion-new' forum.slug %}">+ Add Discussion</a>
+              </div>
             </div>
-            <footer class="card-footer">
-              <p class="card-footer-item">
-                <span>
-                  View on <a href="{{ discussion.get_absolute_url }}">more</a>
-                </span>
-              </p>
-              <p class="card-footer-item">
-                <span>
-                  Share on <a href="#">Facebook</a>
-                </span>
-              </p>
-            </footer>
           </div>
-        {% endfor %}
+          {% for discussion in forum.discussion_set.all %}
+           <div class="card mb-6">
+              <div class="card-content">
+                <p class="title">
+                  {% filter force_escape|title %}
+                  {{ discussion.title }}
+                  {% endfilter %}
+                </p>
+                <p class="subtitle">
+                  by {{ discussion.author }} | 
+                  {{ discussion.date }}
+                </p>
+              </div>
+              <footer class="card-footer">
+                <p class="card-footer-item">
+                  <span>
+                    View on <a href="{{ discussion.get_absolute_url }}">more</a>
+                  </span>
+                </p>
+                <p class="card-footer-item">
+                  <span>
+                    Share on <a href="#">Facebook</a>
+                  </span>
+                </p>
+              </footer>
+            </div>
+          {% endfor %}
+        </div>
     </div>
     
 {% endblock content %}

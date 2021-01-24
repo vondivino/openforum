@@ -11,7 +11,9 @@
           <h1 class="title">All Forums</h1>
         </div>
         <div class="column">
-          <button class="button is-success is-light">+ Add Forum</button>
+          <button class="button is-success is-light">
+            <a href="{% url 'forum-new'%}">+ Add Forum</a>
+          </button>
         </div>
       </div>
     </div>
@@ -20,7 +22,7 @@
       <div class="card">
           <div class="card-content">
             <p class="title">
-              {{ forum.name }}
+              {{ forum.name|title }}
             </p>
           </div>
           <footer class="card-footer">

@@ -6,6 +6,10 @@ from django.contrib.auth.models import User
 class Forum(models.Model):
     name = models.CharField(max_length=128)
     slug = models.SlugField(null=False, unique=True)
+    author = models.ForeignKey(
+        User,
+        on_delete=models.DO_NOTHING
+    )
 
     def __str__(self):
         return self.name
@@ -47,3 +51,6 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.body[:50]
+
+    def get_absolute_url(self):
+        return reverse('discussion-detail', kwargs={'slug': self.discussion.slug})
