@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django_crispy_bulma',
 
     # Local
-    'accounts.apps.AccountsConfig'
+    'accounts.apps.AccountsConfig',
+    'forums.apps.ForumsConfig'
 ]
 
 MIDDLEWARE = [
