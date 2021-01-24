@@ -5,26 +5,37 @@
 {% block title %} Home {% endblock title %}
 
 {% block content %} 
-    <h1 class="title">All Forums</h1>
-    {% for forum in forums %}
-    <div class="card">
-        <div class="card-content">
-          <p class="title">
-            {{ forum.name }}
-          </p>
+    <div class="section">
+      <div class="columns">
+        <div class="column">
+          <h1 class="title">All Forums</h1>
         </div>
-        <footer class="card-footer">
-          <p class="card-footer-item">
-            <span>
-                View all <a href="{{ forum.get_absolute_url }}">discussions</a>
-            </span>
-          </p>
-          <p class="card-footer-item">
-            <span>
-              Share on <a href="#">Facebook</a>
-            </span>
-          </p>
-        </footer>
+        <div class="column">
+          <button class="button is-success is-light">+ Add Forum</button>
+        </div>
       </div>
-    {% endfor %}
+    </div>
+    <div class="section">
+      {% for forum in forums %}
+      <div class="card">
+          <div class="card-content">
+            <p class="title">
+              {{ forum.name }}
+            </p>
+          </div>
+          <footer class="card-footer">
+            <p class="card-footer-item">
+              <span>
+                  View all <a href="{{ forum.get_absolute_url }}">discussions</a>
+              </span>
+            </p>
+            <p class="card-footer-item">
+              <span>
+                Share on <a href="#">Facebook</a>
+              </span>
+            </p>
+          </footer>
+        </div>
+      {% endfor %}
+    </div>
 {% endblock content %}

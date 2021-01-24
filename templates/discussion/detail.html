@@ -9,7 +9,11 @@
         <div class="columns">
             <div class="column is-three-fifths">
                 <div class="section">
-                    <h1 class="title">{{ discussion.title }}</h1>
+                    <h1 class="title mb-6">
+                      {{ discussion.title }}
+                      <span class="tag is-primary">{{ discussion.forum.name }}</span>
+                    </h1>
+                    
                     <h4 class="subtitle is-6">
                         by {{ discussion.author}} | {{ discussion.date }}
                     </h2>
