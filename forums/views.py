@@ -18,3 +18,8 @@ class ForumDetailView(DetailView):
     model = Forum 
     template_name = 'forums/detail.html'
     context_object_name = 'forum'
+
+class DiscussionDetailView(DetailView):
+    model = Discussion 
+    template_name = 'discussion/detail.html'
+    context_object_name = 'discussion'

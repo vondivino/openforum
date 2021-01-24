@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 
 
-{% block title %}{{ forum.title }}{% endblock title %}
+{% block title %}{{ forum.name }}{% endblock title %}
 
 {% block content %} 
     <div class="content">
@@ -21,7 +21,7 @@
             <footer class="card-footer">
               <p class="card-footer-item">
                 <span>
-                  View on <a href="">more</a>
+                  View on <a href="{{ discussion.get_absolute_url }}">more</a>
                 </span>
               </p>
               <p class="card-footer-item">

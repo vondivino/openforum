@@ -25,9 +25,13 @@ class Discussion(models.Model):
         Forum,
         on_delete=models.CASCADE
     )
+    slug = models.SlugField(null=False, unique=True)
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('discussion-detail', kwargs={'slug':self.slug})
 
 class Comment(models.Model):
     date = models.DateTimeField(auto_now_add=True)
